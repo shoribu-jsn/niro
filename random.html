@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<title>Hello, World!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+
+  function onClickA() {
+    var random = (Math.random() * 3) + 1;
+    var mise;
+    if(random < 2){
+      mise = "くしかつ"
+    } else {
+      if(random < 3) {
+        mise = "ドミノピザ"
+      } else {
+        mise = "揚州商人"
+      }
+    }
+    alert(mise);
+  }
+
+</script>
+
+</head>
+
+
+<body>
+
+  <form name="inputField">
+    <input type="button" value="店をえらぶ！" onClick="onClickA()" />
+  </form>
+
+</body>
+
+</html>
