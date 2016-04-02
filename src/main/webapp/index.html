@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="js/lib/knockout/knockout-3.4.0.js"></script>
+		<script type="text/javascript" src="js/lib/jquery/jquery-2.2.2.min.js"></script>
+		<title>HelloWorld!!!!!!!!</title>
+	</head>
+	<body>
+		<h1>Hello World!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+		ユーザーs
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>なまえ</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: Users">
+				<tr>
+					<td data-bind="text: $data.ID"></td>
+					<td data-bind="text: $data.Name"></td>
+				</tr>
+			</tbody>
+		</table>
+		<script>
+		var User = function() {
+			var self = this;
+			self.ID = ko.observable();
+			self.Name = ko.observable();
+		};
+		var ViewModel = function() {
+			var self = this;
+			self.Users = ko.observableArray();
+		};
+		var viewModel = new ViewModel();
+		$(document).ready(function() {
+			ko.applyBindings(viewModel);
+			$.ajax("/api/users", {
+				success: function(data) {
+					data.forEach(function(user, idx) {
+						viewModel.users.push(user);
+					});
+				}
+			});
+		});
+		</script>
+	</body>
 </html>

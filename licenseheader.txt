@@ -1,0 +1,1 @@
+${licenseFirst} Copyright © 2016- shoribu_jsn All Rights Reserved.${licenseLast}
