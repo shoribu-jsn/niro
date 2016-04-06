@@ -12,7 +12,7 @@ import jp.co.shoribu_jsn.claire.data.entity.SystemUser;
  * ユーザーに関連するデータ接続を提供します。
  * @author rued97
  */
-public class UserAccessor {
+public class UserDao {
 
 	@Inject
 	private EntityManager em;

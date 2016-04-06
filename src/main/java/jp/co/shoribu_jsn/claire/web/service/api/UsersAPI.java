@@ -8,7 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import jp.co.shoribu_jsn.claire.data.accessor.UserAccessor;
+import jp.co.shoribu_jsn.claire.data.accessor.UserDao;
 import jp.co.shoribu_jsn.claire.data.entity.SystemUser;
 
 /**
@@ -20,7 +20,7 @@ import jp.co.shoribu_jsn.claire.data.entity.SystemUser;
 public class UsersAPI {
 
 	@Inject
-	private UserAccessor userAccessor;
+	private UserDao userAccessor;
 
 	/**
 	 * ユーザー情報を提供します。

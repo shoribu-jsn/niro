@@ -4,21 +4,28 @@ package jp.co.shoribu_jsn.claire.data.conf;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 
 /**
  * EntityManager創造主。
  * @author rued97
  */
 @Dependent
-public class ClaireDBProducer {
+public class EntityManagerProducer {
 
-	@PersistenceContext(unitName="ClaireDB")
+	@PersistenceUnit(unitName="ClaireDB")
+	private EntityManagerFactory emf;
+
 	private EntityManager em;
 
 	@Produces
 	public EntityManager getEntityManager() {
-		return this.em;
+		if(this.emf == null) {
+			return null;
+		}
+		// TODO synchronizedにする必要がある？
+		return this.emf.createEntityManager();
 	}
 
 }

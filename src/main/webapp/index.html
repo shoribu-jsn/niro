@@ -11,17 +11,11 @@
 	<body>
 		<h1>Hello World!!!!!!!!!!!!!!!!!!!!!!!!</h1>
 		ユーザーs
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>なまえ</th>
-				</tr>
-			</thead>
+		<table style="border-style: solid">
 			<tbody data-bind="foreach: Users">
 				<tr>
-					<td data-bind="text: $data.ID"></td>
-					<td data-bind="text: $data.Name"></td>
+					<td data-bind="text: 'ID: ' + $data.ID"></td>
+					<td data-bind="text: 'Name: ' + $data.name"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -38,10 +32,10 @@
 		var viewModel = new ViewModel();
 		$(document).ready(function() {
 			ko.applyBindings(viewModel);
-			$.ajax("/api/users", {
+			$.ajax("api/users", {
 				success: function(data) {
 					data.forEach(function(user, idx) {
-						viewModel.users.push(user);
+						viewModel.Users.push(user);
 					});
 				}
 			});

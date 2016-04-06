@@ -3,7 +3,7 @@ package jp.co.shoribu_jsn.claire.data.accessor;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import jp.co.shoribu_jsn.claire.data.conf.ClaireDBProducer;
+import jp.co.shoribu_jsn.claire.data.conf.EntityManagerProducer;
 import jp.co.shoribu_jsn.claire.data.entity.SystemUser;
 import jp.co.shoribu_jsn.claire.test.mock.TestClaireDBProducer;
 import mockit.Mock;
@@ -19,11 +19,11 @@ import org.junit.Test;
  * UserAccessorのテスト
  * @author rued97
  */
-public class UserAccessorTest {
+public class UserDaoTest {
 
 	/** JavaEE環境のテスト用 */
 	private Weld weld;
-	private UserAccessor testTarget;
+	private UserDao testTarget;
 
 	/** テスト用ユーザーID */
 	private static final String TEST_USER_ID = "test_user_id";
@@ -34,14 +34,14 @@ public class UserAccessorTest {
 	public void テスト実行前処理() {
 		// 以下SE環境でEE環境のテストを行うための準備
 		// TODO:ルール化したい。ランナー？
-		new MockUp<ClaireDBProducer>() {
+		new MockUp<EntityManagerProducer>() {
 			@Mock
 			public EntityManager getEntityManager() {
 				return TestClaireDBProducer.getEntityManager();
 			}
 		};
 		this.weld = new Weld();
-		this.testTarget = this.weld.initialize().instance().select(UserAccessor.class).get();
+		this.testTarget = this.weld.initialize().instance().select(UserDao.class).get();
 	}
 
 	@After

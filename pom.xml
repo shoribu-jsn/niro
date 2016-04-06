@@ -15,12 +15,6 @@
 	</properties>
     
 	<dependencies>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
-			<scope>runtime</scope>
-		</dependency>
 	 <dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -29,6 +23,7 @@
 		</dependency>
 
 		<!-- 以下テスト用 -->
+		<!-- JUnit関連 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -41,12 +36,20 @@
 			<version>1.9</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- DB関連 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
 			<version>2.6.1</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- CDI関連 -->
 		<dependency>
 			<groupId>org.jboss.weld.se</groupId>
 			<artifactId>weld-se-core</artifactId>
