@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlRootElement;
 import jp.co.shoribu_jsn.claire.db.dao.UserDao;
 import jp.co.shoribu_jsn.claire.db.entity.SystemUser;
+import jp.co.shoribu_jsn.claire.logging.Logging;
 
 /**
  * ユーザー情報を提供します。
@@ -36,6 +37,7 @@ public class UsersAPI {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestScoped
+	@Logging
 	public List<UserContainer> getUsers() {
 		return this.userDao.load().stream()
 			.map(UserContainer::new )
@@ -50,6 +52,7 @@ public class UsersAPI {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
+	@Logging
 	public void register(UserContainer container) {
 		this.userDao.persist(container.toEntity());
 	}
