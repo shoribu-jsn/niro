@@ -1,12 +1,13 @@
 /* Copyright © 2016- shoribu_jsn All Rights Reserved. */
-package jp.co.shoribu_jsn.claire.data.accessor;
+package jp.co.shoribu_jsn.claire.db.dao;
 
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import jp.co.shoribu_jsn.claire.data.entity.SystemUser;
+import javax.transaction.Transactional;
+import jp.co.shoribu_jsn.claire.db.entity.SystemUser;
 
 /**
  * ユーザーに関連するデータ接続を提供します。
@@ -37,6 +38,14 @@ public class UserDao {
 		} catch(NoResultException ex) {
 			return null;
 		}
+	}
+
+	/**
+	 * ユーザーを永続化コンテキストの管理対象にします。
+	 * @param user 
+	 */
+	public void persist(SystemUser user) {
+		this.em.persist(user);
 	}
 
 }

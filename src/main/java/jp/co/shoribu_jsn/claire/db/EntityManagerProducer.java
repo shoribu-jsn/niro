@@ -1,11 +1,10 @@
 /* Copyright © 2016- shoribu_jsn All Rights Reserved. */
-package jp.co.shoribu_jsn.claire.data.conf;
+package jp.co.shoribu_jsn.claire.db;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 
 /**
  * EntityManager創造主。
@@ -14,18 +13,16 @@ import javax.persistence.PersistenceUnit;
 @Dependent
 public class EntityManagerProducer {
 
-	@PersistenceUnit(unitName="ClaireDB")
-	private EntityManagerFactory emf;
-
+	@PersistenceContext(unitName="ClaireDB")
 	private EntityManager em;
 
+	/**
+	 * EntityManagerを取得します。
+	 * @return EntityManager
+	 */
 	@Produces
 	public EntityManager getEntityManager() {
-		if(this.emf == null) {
-			return null;
-		}
-		// TODO synchronizedにする必要がある？
-		return this.emf.createEntityManager();
+		return this.em;
 	}
 
 }

@@ -15,10 +15,18 @@
 			<tbody data-bind="foreach: Users">
 				<tr>
 					<td data-bind="text: 'ID: ' + $data.ID"></td>
-					<td data-bind="text: 'Name: ' + $data.name"></td>
+					<td data-bind="text: 'Name: ' + $data.Name"></td>
 				</tr>
 			</tbody>
 		</table>
+		<div>
+			ユーザーの情報を登録する。
+			<div>
+				<div>ユーザーID: <input type="text" data-bind="value: InputUser.ID" /></div>
+				<div>ユーザー名: <input type="text" data-bind="value: InputUser.Name" /></div>
+				<div><button data-bind="click: register">おしてね</button></div>
+			</div>
+		</div>
 		<script>
 		var User = function() {
 			var self = this;
@@ -28,6 +36,19 @@
 		var ViewModel = function() {
 			var self = this;
 			self.Users = ko.observableArray();
+			self.InputUser = new User();
+			self.register = function() {
+			$.ajax("api/users", {
+				data: JSON.stringify(ko.toJS(self.InputUser)),
+				type: "POST",
+				contentType: "application/json; charset=UTF-8",
+				success: function(data) {
+					data.forEach(function(user, idx) {
+						viewModel.Users.push(user);
+					});
+				}
+			});
+			};
 		};
 		var viewModel = new ViewModel();
 		$(document).ready(function() {

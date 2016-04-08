@@ -1,5 +1,5 @@
 /* Copyright © 2016- shoribu_jsn All Rights Reserved. */
-package jp.co.shoribu_jsn.claire.data.entity;
+package jp.co.shoribu_jsn.claire.db.entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

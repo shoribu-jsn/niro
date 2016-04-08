@@ -20,6 +20,6 @@
     </properties>
 
 		<!-- テスト時にEntityクラスを読み取れないので明示的に指定している。 -->
-		<class>jp.co.shoribu_jsn.claire.data.entity.SystemUser</class>
+		<class>jp.co.shoribu_jsn.claire.db.entity.SystemUser</class>
   </persistence-unit>
 </persistence>
