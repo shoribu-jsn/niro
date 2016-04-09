@@ -30,7 +30,6 @@ public class UsersAPI {
 
 	/**
 	 * ユーザー情報を提供します。
-	 * TODO:てすと用
 	 * @return ユーザー一覧
 	 */
 	@Path("/")
@@ -53,7 +52,10 @@ public class UsersAPI {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Transactional
 	@Logging
-	public void register(UserContainer container) {
+	public void putUser(UserContainer container) {
+		if(container == null) {
+			return;
+		}
 		this.userDao.persist(container.toEntity());
 	}
 
