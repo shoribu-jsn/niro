@@ -1,66 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="text/javascript" src="js/lib/knockout/knockout-3.4.0.js"></script>
-		<script type="text/javascript" src="js/lib/jquery/jquery-2.2.2.min.js"></script>
-		<title>HelloWorld!!!!!!!!</title>
 	</head>
 	<body>
-		<h1>Hello World!!!!!!!!!!!!!!!!!!!!!!!!</h1>
-		ユーザーs
-		<table style="border-style: solid">
-			<tbody data-bind="foreach: Users">
-				<tr>
-					<td data-bind="text: 'ID: ' + $data.ID"></td>
-					<td data-bind="text: 'Name: ' + $data.Name"></td>
-				</tr>
-			</tbody>
-		</table>
-		<div>
-			ユーザーの情報を登録する。
-			<div>
-				<div>ユーザーID: <input type="text" data-bind="value: InputUser.ID" /></div>
-				<div>ユーザー名: <input type="text" data-bind="value: InputUser.Name" /></div>
-				<div><button data-bind="click: register">おしてね</button></div>
-			</div>
-		</div>
-		<script>
-		var User = function() {
-			var self = this;
-			self.ID = ko.observable();
-			self.Name = ko.observable();
-		};
-		var ViewModel = function() {
-			var self = this;
-			self.Users = ko.observableArray();
-			self.InputUser = new User();
-			self.register = function() {
-			$.ajax("api/users", {
-				data: JSON.stringify(ko.toJS(self.InputUser)),
-				type: "POST",
-				contentType: "application/json; charset=UTF-8",
-				success: function(data) {
-					data.forEach(function(user, idx) {
-						viewModel.Users.push(user);
-					});
-				}
-			});
-			};
-		};
-		var viewModel = new ViewModel();
-		$(document).ready(function() {
-			ko.applyBindings(viewModel);
-			$.ajax("api/users", {
-				success: function(data) {
-					data.forEach(function(user, idx) {
-						viewModel.Users.push(user);
-					});
-				}
-			});
-		});
-		</script>
+		<script>document.location.href = "pages/Login.html";</script>
 	</body>
 </html>

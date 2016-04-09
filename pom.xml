@@ -21,6 +21,23 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- HTTPリクエスト用 -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.22.1</version>
+		</dependency>
+		<!-- ファイルアップロード用 -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>2.22.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.22.1</version>
+		</dependency>
 
 		<!-- 以下テスト用 -->
 		<!-- JUnit関連 -->

@@ -1,0 +1,9 @@
+# Copyright © 2016- shoribu_jsn All Rights Reserved.
+# ロケール
+facebook_locale=ja_JP
+# 文字コード
+facebook_charset=UTF-8
+# App ID
+facebook_client_id=
+# App Secret
+facebook_client_secret=

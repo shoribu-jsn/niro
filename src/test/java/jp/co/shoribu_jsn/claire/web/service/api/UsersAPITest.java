@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import jp.co.shoribu_jsn.claire.db.dao.UserDao;
 import jp.co.shoribu_jsn.claire.db.entity.SystemUser;
 import jp.co.shoribu_jsn.claire.test.junit.TemporaryTransactionalRule;
+import jp.co.shoribu_jsn.claire.web.service.api.container.UserContainer;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.After;
 import org.junit.Test;
@@ -67,7 +68,7 @@ public class UsersAPITest {
 		}
 
 		// 対象メソッド実行
-		List<UsersAPI.UserContainer> results = this.testTarget.getUsers();
+		List<UserContainer> results = this.testTarget.getUsers();
 
 		// 以下検証。
 		assertThat(results.size(), is(targets.size()));
@@ -82,7 +83,7 @@ public class UsersAPITest {
 	@Test
 	public void ユーザーを登録できる() {
 		// テストデータ作成
-		UsersAPI.UserContainer target = new UsersAPI.UserContainer();
+		UserContainer target = new UserContainer();
 		target.ID = "test";
 		target.Name = "てすと";
 

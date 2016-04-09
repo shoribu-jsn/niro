@@ -12,10 +12,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.annotation.XmlRootElement;
 import jp.co.shoribu_jsn.claire.db.dao.UserDao;
-import jp.co.shoribu_jsn.claire.db.entity.SystemUser;
 import jp.co.shoribu_jsn.claire.logging.Logging;
+import jp.co.shoribu_jsn.claire.web.service.api.container.UserContainer;
 
 /**
  * ユーザー情報を提供します。
@@ -35,7 +34,6 @@ public class UsersAPI {
 	@Path("/")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@RequestScoped
 	@Logging
 	public List<UserContainer> getUsers() {
 		return this.userDao.load().stream()
@@ -59,38 +57,4 @@ public class UsersAPI {
 		this.userDao.persist(container.toEntity());
 	}
 
-	/**
-	 * ユーザー情報を保持するコンテナ。
-	 */
-	@XmlRootElement
-	public static class UserContainer {
-		/** ユーザーID */
-		public String ID;
-		/** ユーザー名 */
-		public String Name;
-	
-		/** JSON変換用のコンストラクタ */
-		public UserContainer() {}
-
-		/**
-		 * エンティティからインスタンスを生成します。
-		 * @param user 
-		 */
-		public UserContainer(SystemUser user) {
-			this.ID = user.getID();
-			this.Name = user.getName();
-		}
-	
-		/**
-		 * コンテナの情報をエンティティに変換します。
-		 * @return ユーザーエンティティ
-		 */
-		public SystemUser toEntity() {
-			SystemUser user = new SystemUser();
-			user.setID(this.ID);
-			user.setName(this.Name);
-			return user;
-		}
-
-	}
 }

@@ -25,6 +25,7 @@ public class ApplicationConfig extends Application {
 	 * If required, comment out calling this method in getClasses().
 	 */
 	private void addRestResourceClasses(Set<Class<?>> resources) {
+		resources.add(jp.co.shoribu_jsn.claire.web.service.api.AuthorizationAPI.class);
 		resources.add(jp.co.shoribu_jsn.claire.web.service.api.UsersAPI.class);
 	}
 	

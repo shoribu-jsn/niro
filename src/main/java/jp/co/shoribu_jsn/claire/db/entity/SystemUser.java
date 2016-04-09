@@ -23,6 +23,16 @@ public class SystemUser implements Serializable {
 	 */
 	private String Name;
 
+	/**
+	 * FacebookID
+	 */
+	private String FacebookID;
+
+	/**
+	 * アクセストークン
+	 */
+	private String AccessToken;
+
 	@Override
 	public String toString() {
 		return "ID=" + this.ID + " Name=" + this.Name;
@@ -45,5 +55,21 @@ public class SystemUser implements Serializable {
 	public void setName(String Name) {
 		this.Name = Name;
 	}
-	
+
+	public String getFacebookID() {
+		return FacebookID;
+	}
+
+	public void setFacebookID(String FacebookID) {
+		this.FacebookID = FacebookID;
+	}
+
+	public String getAccessToken() {
+		return AccessToken;
+	}
+
+	public void setAccessToken(String AccessToken) {
+		this.AccessToken = AccessToken;
+	}
+
 }

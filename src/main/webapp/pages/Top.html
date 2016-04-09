@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+		<title>ログインしたよ。</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="Login.html">めがねの実験ページ</a>
+				</div>
+				<div class="collapse navbar-collapse navbar-right" id="navbarEexample">
+					<ul class="nav navbar-nav">
+					</ul>
+					<a href="Login.html" class="btn btn-primary navbar-btn navbar-right">ログアウト</a>
+				</div>
+			</div>
+		</nav>
+
+		<section class="jumbotron">
+			<article class="container">
+				<h2>ログイン成功　<small><strong data-bind="text: LoggedInUser.Name()"></strong>さんようこそ！</small></h2>
+			</article>
+		</section>
+
+		<footer class="container text-right">Copyright (C) 2016- shoribu_jsn All Rights Reserved.</footer>
+
+		<script type="text/javascript" src="../lib/jquery/jquery-2.2.2.min.js"></script>
+		<script type="text/javascript" src="../lib/knockout/knockout-3.4.0.js"></script>
+		<script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/Authorization.js"></script>
+	</body>
+</html>
