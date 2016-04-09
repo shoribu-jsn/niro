@@ -14,7 +14,7 @@ import javax.ws.rs.client.WebTarget;
 public class FBURLGenerator {
 
 	/** GRAPH_API_BASE */
-	private static final String GRAPH_API_BASE_URL_V2_4 = "https://graph.facebook.com/v2.4";
+	private static final String GRAPH_API_BASE_URL_V2_4 = "https://graph.facebook.com/v2.5";
 
 	/**
 	 * 認可取得用のURLをパラメータ付きで生成します。<br>
